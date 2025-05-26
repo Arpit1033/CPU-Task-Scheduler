@@ -19,6 +19,7 @@ public:
 };
 
 void fcfs(vector<Task> &tasks) {
+    cout << "FCFS Scheduling\n";
     int current_time = 0;  // Current execution time
 
     for (Task &task : tasks) {
@@ -36,7 +37,6 @@ int main(){
         Task("Task1", 8)
     };
 
-    cout << "FCFS Scheduling\n";
     fcfs(tasks);
 
     return 0;
