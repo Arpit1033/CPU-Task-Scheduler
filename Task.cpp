@@ -17,3 +17,27 @@ public:
         : name(name), burst_time(burst_time), priority(priority), remaining_time(burst_time),
           start_time(-1), finish_time(-1) {}
 };
+
+void fcfs(vector<Task> &tasks) {
+    int current_time = 0;  // Current execution time
+
+    for (Task &task : tasks) {
+        task.start_time = current_time;
+        current_time += task.burst_time;
+        task.finish_time = current_time;
+        cout << task.name << ' ' << task.start_time << ' ' << task. finish_time << '\n';
+    }
+}
+
+int main(){
+    vector<Task> tasks = {
+        Task("Task1", 5),
+        Task("Task1", 3),
+        Task("Task1", 8)
+    };
+
+    cout << "FCFS Scheduling\n";
+    fcfs(tasks);
+
+    return 0;
+}
