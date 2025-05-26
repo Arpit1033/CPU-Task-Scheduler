@@ -10,7 +10,7 @@ void fcfs(vector<Task> &tasks) {
         task.start_time = current_time;
         current_time += task.burst_time;
         task.finish_time = current_time;
-        cout << task.name << ' ' << task.start_time << ' ' << task.finish_time << '\n';
+        cout << task.name << ": start at " << task.start_time << ", finish at " << task.finish_time << '\n';
     }
 }
 
@@ -21,7 +21,7 @@ int main(){
         Task("Task1", 8)
     };
 
-    cout << "FCFS Scheduling\n";
+    cout << "FCFS Scheduling:\n";
     fcfs(tasks);
     return 0;
 }
