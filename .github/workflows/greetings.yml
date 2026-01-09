@@ -1,0 +1,34 @@
+name: Greetings
+
+on: [pull_request_target, issues]
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+      pull-requests: write
+    steps:
+    - uses: actions/first-interaction@v1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        issue-message: |
+          👋 Hi there! Thanks for opening your first issue in **CPU Task Scheduler**!
+          
+          We appreciate you taking the time to report this. A maintainer will review it soon.
+          
+          In the meantime, please make sure you've included:
+          - A clear description of the issue
+          - Steps to reproduce (if it's a bug)
+          - Your environment details (OS, compiler version)
+          
+          Happy scheduling! ⏰
+        pr-message: |
+          🎉 Welcome and thank you for your first Pull Request to **CPU Task Scheduler**!
+          
+          We're excited to review your contribution. Please ensure:
+          - [ ] Code compiles without errors
+          - [ ] CI pipeline passes
+          - [ ] README/docs updated (if applicable)
+          
+          A maintainer will review your PR soon. Thanks for helping improve this project! 🚀
