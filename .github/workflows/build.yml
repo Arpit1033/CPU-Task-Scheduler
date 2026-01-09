@@ -2,9 +2,8 @@ name: Build and Test
 
 on:
   push:
-    branches: [ main, master ]
   pull_request:
-    branches: [ main, master ]
+    branches: [ main ]
 
 jobs:
   build:
@@ -22,28 +21,58 @@ jobs:
       run: cmake -B build -S .
 
     - name: Build
-      run: cmake --build build
+      run: cmake --build build --config Release
 
-    - name: Run FCFS
+    - name: Run FCFS (Unix)
+      if: runner.os != 'Windows'
       run: ./build/fcfs
+
+    - name: Run FCFS (Windows)
+      if: runner.os == 'Windows'
+      run: ./build/Release/fcfs.exe
       shell: bash
 
-    - name: Run Round Robin
+    - name: Run Round Robin (Unix)
+      if: runner.os != 'Windows'
       run: ./build/round_robin
+
+    - name: Run Round Robin (Windows)
+      if: runner.os == 'Windows'
+      run: ./build/Release/round_robin.exe
       shell: bash
 
-    - name: Run Priority Scheduling
+    - name: Run Priority Scheduling (Unix)
+      if: runner.os != 'Windows'
       run: ./build/priority_scheduling
+
+    - name: Run Priority Scheduling (Windows)
+      if: runner.os == 'Windows'
+      run: ./build/Release/priority_scheduling.exe
       shell: bash
 
-    - name: Run SJF
+    - name: Run SJF (Unix)
+      if: runner.os != 'Windows'
       run: ./build/sjf
+
+    - name: Run SJF (Windows)
+      if: runner.os == 'Windows'
+      run: ./build/Release/sjf.exe
       shell: bash
 
-    - name: Run SRTF
+    - name: Run SRTF (Unix)
+      if: runner.os != 'Windows'
       run: ./build/srtf
+
+    - name: Run SRTF (Windows)
+      if: runner.os == 'Windows'
+      run: ./build/Release/srtf.exe
       shell: bash
 
-    - name: Run Multilevel Queue
+    - name: Run Multilevel Queue (Unix)
+      if: runner.os != 'Windows'
       run: ./build/multilevel_queue
+
+    - name: Run Multilevel Queue (Windows)
+      if: runner.os == 'Windows'
+      run: ./build/Release/multilevel_queue.exe
       shell: bash
