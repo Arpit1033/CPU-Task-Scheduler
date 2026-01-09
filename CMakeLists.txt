@@ -12,13 +12,16 @@ else()
     add_compile_options(-Wall -Wextra -pedantic)
 endif()
 
+# Include directories
+include_directories(${CMAKE_SOURCE_DIR}/include)
+
 # Create executables for each scheduling algorithm
-add_executable(fcfs fcfs.cpp)
-add_executable(round_robin round_robin.cpp)
-add_executable(priority_scheduling priority_scheduling.cpp)
-add_executable(sjf sjf.cpp)
-add_executable(srtf srtf.cpp)
-add_executable(multilevel_queue multilevel_queue.cpp)
+add_executable(fcfs src/algorithms/fcfs.cpp)
+add_executable(round_robin src/algorithms/round_robin.cpp)
+add_executable(priority_scheduling src/algorithms/priority_scheduling.cpp)
+add_executable(sjf src/algorithms/sjf.cpp)
+add_executable(srtf src/algorithms/srtf.cpp)
+add_executable(multilevel_queue src/algorithms/multilevel_queue.cpp)
 
 # Optional: Install targets
 install(TARGETS fcfs round_robin priority_scheduling sjf srtf multilevel_queue
