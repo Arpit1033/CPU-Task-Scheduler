@@ -1,0 +1,97 @@
+name: Build and Test
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build-linux:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Install g++
+      run: sudo apt-get update && sudo apt-get install -y g++
+
+    - name: Build FCFS
+      run: g++ -std=c++17 -o fcfs fcfs.cpp
+
+    - name: Build Round Robin
+      run: g++ -std=c++17 -o round_robin round_robin.cpp
+
+    - name: Build Priority Scheduling
+      run: g++ -std=c++17 -o priority_scheduling priority_scheduling.cpp
+
+    - name: Build SJF
+      run: g++ -std=c++17 -o sjf sjf.cpp
+
+    - name: Build SRTF
+      run: g++ -std=c++17 -o srtf srtf.cpp
+
+    - name: Build Multilevel Queue
+      run: g++ -std=c++17 -o multilevel_queue multilevel_queue.cpp
+
+    - name: Run FCFS
+      run: ./fcfs
+
+    - name: Run Round Robin
+      run: ./round_robin
+
+    - name: Run Priority Scheduling
+      run: ./priority_scheduling
+
+    - name: Run SJF
+      run: ./sjf
+
+    - name: Run SRTF
+      run: ./srtf
+
+    - name: Run Multilevel Queue
+      run: ./multilevel_queue
+
+  build-windows:
+    runs-on: windows-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Build FCFS
+      run: g++ -std=c++17 -o fcfs.exe fcfs.cpp
+
+    - name: Build Round Robin
+      run: g++ -std=c++17 -o round_robin.exe round_robin.cpp
+
+    - name: Build Priority Scheduling
+      run: g++ -std=c++17 -o priority_scheduling.exe priority_scheduling.cpp
+
+    - name: Build SJF
+      run: g++ -std=c++17 -o sjf.exe sjf.cpp
+
+    - name: Build SRTF
+      run: g++ -std=c++17 -o srtf.exe srtf.cpp
+
+    - name: Build Multilevel Queue
+      run: g++ -std=c++17 -o multilevel_queue.exe multilevel_queue.cpp
+
+    - name: Run FCFS
+      run: ./fcfs.exe
+
+    - name: Run Round Robin
+      run: ./round_robin.exe
+
+    - name: Run Priority Scheduling
+      run: ./priority_scheduling.exe
+
+    - name: Run SJF
+      run: ./sjf.exe
+
+    - name: Run SRTF
+      run: ./srtf.exe
+
+    - name: Run Multilevel Queue
+      run: ./multilevel_queue.exe
