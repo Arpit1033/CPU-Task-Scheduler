@@ -1,3 +1,6 @@
+#ifndef TASK_H
+#define TASK_H
+
 #include <iostream>
 #include <string>
 #include <vector>
@@ -17,3 +20,5 @@ public:
         : name(name), burst_time(burst_time), priority(priority), remaining_time(burst_time),
           start_time(-1), finish_time(-1) {}
 };
+
+#endif
