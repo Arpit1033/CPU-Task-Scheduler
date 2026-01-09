@@ -17,8 +17,8 @@ void fcfs(vector<Task> &tasks) {
 int main(){
     vector<Task> tasks = {
         Task("Task1", 5),
-        Task("Task1", 3),
-        Task("Task1", 8)
+        Task("Task2", 3),
+        Task("Task3", 8)
     };
 
     cout << "FCFS Scheduling:\n";
